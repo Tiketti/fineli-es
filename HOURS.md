@@ -10,3 +10,9 @@ Draft initial bash script for scraping the API
 ### 2 hours
 
 Add Elasticsearch, Kibana, Filebeat in Docker containers
+
+## 2019-05-14
+
+### 2 hours
+
+Additional Filebeat configuration by trial and error

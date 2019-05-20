@@ -1,0 +1,54 @@
+filebeat.inputs:
+- type: log
+  paths: ["/var/data/*.json"]
+  json.message_key: event
+  json.keys_under_root: true
+  json.add_error_key: true
+  json.message_key: id
+  tags: [
+    "i",
+    "heart",
+    "json"
+  ]
+
+output.elasticsearch:
+  hosts: ["elasticsearch:9200"]
+  # template.name: filebeat
+  # template.path: filebeat.template.json
+  
+logging.level: debug
+logging.selectors: ["*"]
+
+# Defines if the HTTP endpoint is enabled.
+http.enabled: true
+
+# The HTTP endpoint will bind to this hostname or IP address. It is recommended to use only localhost.
+http.host: localhost
+
+# Port on which the HTTP endpoint will bind. Default is 5066.
+http.port: 5066
+
+# setup.template: 
+
+#   filebeat.modules:
+#   - module: system
+#     auth:
+#       var.paths:
+#         - /var/data/*.json
+
+# name: test
+
+# output.elasticsearch:
+#   # Array of hosts to connect to.
+#   hosts: ["elasticsearch:9200"]
+#   # Optional protocol and basic auth credentials.
+#   #protocol: "https"
+#   # username: "elastic"
+#   # password: "changeme"
+#   # index: "filebeat-%{+yyyy.MM.dd}"
+# dashboards.enabled: true
+# logging.level: debug
+# logging.selectors: ["publish"]
+# json.keys_under_root: true
+# json.add_error_key: true
+# json.message_key: id
